@@ -1,0 +1,13 @@
+# Nats config
+NATSAddress = "nats://nats-cluster.nats-io:4222"
+Topic = "flight-crashes"
+OutTopic = "flight-crashes-with-coords"
+QueueGroup = "consumer-group"
+
+# ElasticSearch config
+Elastics = [ "http://elasticsearch.elastic:9200" ]
+BulkSize = 10
+
+# HTTP config
+HTTPPort = 8080
+GracefulShutdownTimeout = 10

@@ -1,0 +1,26 @@
+<div ng-controller="FlightsCtrl">
+    <div>
+        <div>    
+            <leaflet width="100%" height="500px" markers="markers"></leaflet>
+
+            <table class="standard-table" style="width: 100%;">
+                <thead>
+                    <tr>
+                        <th>Location</th>
+                        <th>Operator</th>
+                        <th>Route</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="flight in flights" style="border-bottom: solid 1px #fff;">
+                        <td>{{flight.location}}</td>
+                        <td>{{flight.operator}}</td>
+                        <td>{{flight.route}}</td>
+                        <td>{{flight.date}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

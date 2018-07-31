@@ -1,0 +1,28 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: ui
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ui
+      annotations:
+        prometheus.io/scrape: 'true'
+    spec:
+      containers:
+      - name: ui
+        image: index.docker.io/mateuszdyminski/auto-ui:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 9000
+          protocol: TCP
+        resources:
+          requests:
+            memory: "32Mi"
+            cpu: "1m"
+          limits:
+            memory: "256Mi"
+            cpu: "100m"

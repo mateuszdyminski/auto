@@ -1,0 +1,45 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: indexer
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: indexer
+      annotations:
+        prometheus.io/scrape: 'true'
+    spec:
+      containers:
+      - name: indexer
+        image: index.docker.io/mateuszdyminski/auto-indexer:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        readinessProbe:
+          httpGet:
+            path: /readyz
+            port: 8080
+          initialDelaySeconds: 1
+          periodSeconds: 2
+          failureThreshold: 1
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 8080
+          initialDelaySeconds: 1
+          periodSeconds: 3
+          failureThreshold: 2
+        resources:
+          requests:
+            memory: "32Mi"
+            cpu: "1m"
+          limits:
+            memory: "256Mi"
+            cpu: "100m"
+        env:
+        - name: GOOGLE_MAPS_API_KEY
+          value: ""

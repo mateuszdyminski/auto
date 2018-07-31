@@ -1,0 +1,3 @@
+NATSAddress = "nats://nats-cluster.nats-io:4222"
+Topic = "flight-crashes"
+CsvDir = "data/data.csv"

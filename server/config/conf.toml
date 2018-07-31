@@ -1,0 +1,10 @@
+# Nats config
+NATSAddress = "nats://192.168.99.100:32201"
+Topic = "flight-crashes-with-coords"
+
+# ElasticSearch config
+Elastics = [ "http://192.168.99.100:32000" ]
+
+# HTTP config
+HTTPPort = 8080
+GracefulShutdownTimeout = 10

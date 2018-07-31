@@ -1,0 +1,3 @@
+NATSAddress = "nats://192.168.99.100:32201"
+Topic = "flight-crashes"
+CsvDir = "data/data.csv"
